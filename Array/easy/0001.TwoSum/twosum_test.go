@@ -6,9 +6,12 @@ import (
 	"testing"
 )
 
+var (
+	nums   []int = []int{2, 7, 11, 15}
+	target int   = 9
+)
+
 func TestTwoSum(t *testing.T) {
-	nums := []int{2, 7, 11, 15}
-	target := 9
 
 	got := TwoSum(nums, target)
 	expected := []int{0, 1}
@@ -20,12 +23,12 @@ func TestTwoSum(t *testing.T) {
 
 func BenchmarkTwoSum(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		TwoSum([]int{2, 7, 11, 15}, 9)
+		TwoSum(nums, target)
 	}
 }
 
 func ExampleTwoSum() {
-	indexSlice := TwoSum([]int{2, 7, 11, 15}, 9)
+	indexSlice := TwoSum(nums, target)
 	fmt.Println(indexSlice)
 	// Output: [0 1]
 }
